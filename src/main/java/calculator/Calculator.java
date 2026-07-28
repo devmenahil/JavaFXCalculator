@@ -45,6 +45,7 @@ public class Calculator extends Application {
         pane.setAlignment(Pos.CENTER);
         pane.setHgap(1);
         pane.setVgap(1);
+        pane.setStyle("-fx-background-color: #EAF2FB;");
 
         // Container for the history label and the main result display
         VBox displayHere = new VBox();
@@ -53,16 +54,17 @@ public class Calculator extends Application {
         displayHere.setPrefHeight(80);
         displayHere.setPrefWidth(163);
 
-        displayHere.setStyle("-fx-background-color: #f4f4f4; -fx-padding:5; -fx-border-color: #f4f4f4;");
+        displayHere.setStyle("-fx-background-color: #FFFFFF; -fx-padding:5; -fx-border-color: #FFFFFF;");
 
         // Small gray label showing the expression history (e.g. "5 +")
         Label history = new Label("");
         history.setFont(Font.font("Segoe UI", 11));
-        history.setTextFill(Color.GRAY);
+        history.setTextFill(Color.web("#6B7A99"));
 
         // Main display showing the current number or result
         Label resultDisplay = new Label("0");
         resultDisplay.setFont(Font.font("Segoe UI", 28));
+        resultDisplay.setTextFill(Color.web("#1B3A6B"));
 
         displayHere.getChildren().addAll(history, resultDisplay);
         pane.add(displayHere, 0,0, 4, 1);
@@ -74,10 +76,22 @@ public class Calculator extends Application {
                 Button button = new Button(text);
                 button.setPrefSize(40, 40);
                 button.setFont(Font.font("Segoe UI", 10));
-                button.setStyle("-fx-background-color: #FFD1DC;");
+
+                // Digits get a soft light-blue style
+                button.setStyle("-fx-background-color: #D6E6F9; -fx-text-fill: #1B3A6B;");
+
+                // Operators (÷, ×, −, +) get a medium blue to stand out from digits
+                if (text.equals("÷") || text.equals("×") || text.equals("−") || text.equals("+"))
+                    button.setStyle("-fx-background-color: #A9CCF0; -fx-text-fill: #1B3A6B;");
+
+                // Utility functions (%, CE, C, ⌫, 1/x, x², √x, ±) get a muted slate-blue shade
+                if (text.equals("%") || text.equals("CE") || text.equals("C") || text.equals("⌫")
+                        || text.equals("1/x") || text.equals("x²") || text.equals("√x") || text.equals("±"))
+                    button.setStyle("-fx-background-color: #C3D9F0; -fx-text-fill: #2E4E7E;");
+
                 // Give the "=" button a distinct highlighted style
                 if(labels[i][j].equals("="))
-                    button.setStyle("-fx-background-color: #C2185B; -fx-text-fill: white;");
+                    button.setStyle("-fx-background-color: #1B5FBF; -fx-text-fill: white;");
 
                 // Defines what happens when this button is clicked
                 button.setOnAction(e -> {
