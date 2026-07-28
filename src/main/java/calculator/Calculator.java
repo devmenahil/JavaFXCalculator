@@ -16,7 +16,7 @@ public class Calculator extends Application {
     // Stores the first operand entered before an operator is pressed
     private double num1 = 0;
 
-    // Tracks which operator (+, −, ×, ÷) was last selected
+    // Tracks which operator (+, −, ×, ÷) was selected last
     private String operator = "";
 
     // Tracks whether the next digit typed should start a new number
