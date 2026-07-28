@@ -1,8 +1,8 @@
 # JavaFX Calculator
 
-<img width="122" height="268" alt="JavaFX_Calculator" src="https://github.com/user-attachments/assets/1c68eaac-0576-43b6-91b0-fbcf4db91382" />
-
 A graphical calculator built with **Java** and **JavaFX**, featuring arithmetic and other mathematical operations.
+
+<img width="122" height="268" alt="JavaFX_Calculator" src="https://github.com/user-attachments/assets/1c68eaac-0576-43b6-91b0-fbcf4db91382" />
 
 ## Features
 * Addition, subtraction, multiplication, and division
